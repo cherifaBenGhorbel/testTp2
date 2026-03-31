@@ -1,0 +1,9 @@
+-------------------------------------------------------------------------------
+Test set: stepdefinitions.CucumberRunnerTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 15.25 s <<< FAILURE! -- in stepdefinitions.CucumberRunnerTest
+Login Functionality.Login with Valid Credentials -- Time elapsed: 6.972 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected successful login message to contain the secure area login text. ==> expected: <true> but was: <false>
+	at stepdefinitions.LoginStepDefinitions.userShouldSeeSuccessfulLoginMessage(LoginStepDefinitions.java:46)
+	at ✽.the user should see a successful login message(file:///c:/Users/CBG/OneDrive/Bureau/Test/src/test/resources/features/login.feature:9)
+

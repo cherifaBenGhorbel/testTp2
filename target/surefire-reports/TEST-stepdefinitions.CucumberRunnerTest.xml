@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="stepdefinitions.LoginStepTest" time="8.316" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="stepdefinitions.CucumberRunnerTest" time="15.25" tests="2" errors="0" skipped="0" failures="1">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="webdriver.chrome.driver" value="C:\Users\CBG\.cache\selenium\chromedriver\win64\123.0.6312.122\chromedriver.exe"/>
@@ -61,13 +61,49 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testLoginSuccess" classname="stepdefinitions.LoginStepTest" time="8.288">
-    <system-err><![CDATA[SLF4J: No SLF4J providers were found.
-SLF4J: Defaulting to no-operation (NOP) logger implementation
-SLF4J: See https://www.slf4j.org/codes.html#noProviders for further details.
-mars 31, 2026 11:34:08 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+  <testcase name="User submits the form successfully" classname="Form submission" time="6.655">
+    <system-out><![CDATA[
+Scenario: User submits the form successfully &amp#27;[90m# src/test/resources/features/form.feature:3&amp#27;[0m
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mthe user is on the form page&amp#27;[0m         &amp#27;[90m# stepdefinitions.FormStep.userIsOnFormPage()&amp#27;[0m
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mthe user fills the form&amp#27;[0m               &amp#27;[90m# stepdefinitions.FormStep.userFillsTheForm()&amp#27;[0m
+File not found: c:\Users\CBG\OneDrive\Bureau\Test\assets\image.png
+  &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user interacts with form elements&amp#27;[0m  &amp#27;[90m# stepdefinitions.FormStep.userInteractsWithFormElements()&amp#27;[0m
+  &amp#27;[32mAnd &amp#27;[0m&amp#27;[32msubmits the form&amp#27;[0m                       &amp#27;[90m# stepdefinitions.FormStep.submitsTheForm()&amp#27;[0m
+  &amp#27;[32mThen &amp#27;[0m&amp#27;[32mthe user should see a success message&amp#27;[0m &amp#27;[90m# stepdefinitions.FormStep.userShouldSeeSuccessMessage()&amp#27;[0m
+]]></system-out>
+    <system-err><![CDATA[mars 31, 2026 11:34:15 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
 WARNING: Unable to find CDP implementation matching 123
-mars 31, 2026 11:34:08 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+mars 31, 2026 11:34:15 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
+WARNING: Unable to find version of CDP to use for 123.0.6312.58. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
+]]></system-err>
+  </testcase>
+  <testcase name="Login with Valid Credentials" classname="Login Functionality" time="6.972">
+    <failure message="Expected successful login message to contain the secure area login text. ==&gt; expected: &lt;true&gt; but was: &lt;false&gt;" type="org.opentest4j.AssertionFailedError"><![CDATA[org.opentest4j.AssertionFailedError: Expected successful login message to contain the secure area login text. ==> expected: <true> but was: <false>
+	at stepdefinitions.LoginStepDefinitions.userShouldSeeSuccessfulLoginMessage(LoginStepDefinitions.java:46)
+	at ✽.the user should see a successful login message(file:///c:/Users/CBG/OneDrive/Bureau/Test/src/test/resources/features/login.feature:9)
+]]></failure>
+    <system-out><![CDATA[
+@runValidLoginAsAdmin
+Scenario: Login with Valid Credentials                &amp#27;[90m# src/test/resources/features/login.feature:4&amp#27;[0m
+  &amp#27;[32mGiven &amp#27;[0m&amp#27;[32mthe user is on the login page&amp#27;[0m                 &amp#27;[90m# stepdefinitions.LoginStepDefinitions.userIsOnLoginPage()&amp#27;[0m
+  &amp#27;[32mWhen &amp#27;[0m&amp#27;[32mthe user enters a username&amp#27;[0m                     &amp#27;[90m# stepdefinitions.LoginStepDefinitions.userEntersUsername()&amp#27;[0m
+  &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mthe user enters a password&amp#27;[0m                      &amp#27;[90m# stepdefinitions.LoginStepDefinitions.userEntersPassword()&amp#27;[0m
+  &amp#27;[32mAnd &amp#27;[0m&amp#27;[32mclicks on the login button&amp#27;[0m                      &amp#27;[90m# stepdefinitions.LoginStepDefinitions.clicksOnLoginButton()&amp#27;[0m
+  &amp#27;[31mThen &amp#27;[0m&amp#27;[31mthe user should see a successful login message&amp#27;[0m &amp#27;[90m# stepdefinitions.LoginStepDefinitions.userShouldSeeSuccessfulLoginMessage()&amp#27;[0m
+      &amp#27;[31morg.opentest4j.AssertionFailedError: Expected successful login message to contain the secure area login text. ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:210)
+	at stepdefinitions.LoginStepDefinitions.userShouldSeeSuccessfulLoginMessage(LoginStepDefinitions.java:46)
+	at âœ½.the user should see a successful login message(file:///c:/Users/CBG/OneDrive/Bureau/Test/src/test/resources/features/login.feature:9)
+&amp#27;[0m
+Screenshot saved: c:\Users\CBG\OneDrive\Bureau\Test\target\screenshots\Login_with_Valid_Credentials-20260331-113427.png
+]]></system-out>
+    <system-err><![CDATA[mars 31, 2026 11:34:22 AM org.openqa.selenium.devtools.CdpVersionFinder findNearestMatch
+WARNING: Unable to find CDP implementation matching 123
+mars 31, 2026 11:34:22 AM org.openqa.selenium.chromium.ChromiumDriver lambda$new$5
 WARNING: Unable to find version of CDP to use for 123.0.6312.58. You may need to include a dependency on a specific version of the CDP using something similar to `org.seleniumhq.selenium:selenium-devtools-v86:4.14.0` where the version ("v86") matches the version of the chromium-based browser you're using and the version number of the artifact is the same as Selenium's.
 ]]></system-err>
   </testcase>
